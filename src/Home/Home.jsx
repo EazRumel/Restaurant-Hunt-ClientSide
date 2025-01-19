@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>Home</title>
+        <title>RH || Home</title>
       </Helmet>
       <Carousal></Carousal>
       <Category></Category>
