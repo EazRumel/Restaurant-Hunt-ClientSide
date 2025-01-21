@@ -29,10 +29,10 @@ const Menu = () => {
     <Cover img={bgImg} title="our menu"></Cover>
     <SectionTitle heading="Today's Offer" subHeading="Don't Miss"></SectionTitle>
     <CategoryItems items ={offered}></CategoryItems>
-    <CategoryItems img={desertImg} items ={dessert} title="Deserts"></CategoryItems>
-    <CategoryItems img={pizzaImg} items ={pizza} title="Pizza"></CategoryItems>
-    <CategoryItems img={saladImg} items ={salad} title="Salad"></CategoryItems>
-    <CategoryItems img={soupImg} items ={soup} title="Soup"></CategoryItems>
+    <CategoryItems img={desertImg} items ={dessert} title="dessert"></CategoryItems>
+    <CategoryItems img={pizzaImg} items ={pizza} title="pizza"></CategoryItems>
+    <CategoryItems img={saladImg} items ={salad} title="salad"></CategoryItems>
+    <CategoryItems img={soupImg} items ={soup} title="soup"></CategoryItems>
     </div>
   );
 };

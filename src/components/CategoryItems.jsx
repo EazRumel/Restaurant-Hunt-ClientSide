@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuItem from './MenuItem';
 import Cover from '../shared/Cover';
-
+import { Link } from 'react-router-dom';
 const CategoryItems = ({items,title,img}) => {
   return (
     <div className="py-16">
@@ -14,6 +14,11 @@ const CategoryItems = ({items,title,img}) => {
 
        }
       </div>
+    
+     
+    <Link to={`/order/${title}`}>
+    <button className="btn btn-outline  border-0 border-b-4">See More</button>
+    </Link>
     </div>
   );
 };

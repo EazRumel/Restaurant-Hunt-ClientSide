@@ -1,15 +1,18 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../shared/Footer';
 import Navbar from '../shared/Navbar';
 import DemoCarousel from '../components/Carousal';
 
 const MainLayout = () => {
+  const location = useLocation()
+  // console.log(location)
+  const hideNavFooter = location.pathname.includes("login")
   return (
     <div>
-      <Navbar></Navbar>
+      {hideNavFooter || <Navbar></Navbar>}
       <Outlet></Outlet>
-      <Footer></Footer>
+      {hideNavFooter || <Footer></Footer>}
     </div>
   );
 };
