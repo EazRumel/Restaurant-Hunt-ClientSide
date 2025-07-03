@@ -7,7 +7,7 @@ import DemoCarousel from '../components/Carousal';
 const MainLayout = () => {
   const location = useLocation()
   // console.log(location)
-  const hideNavFooter = location.pathname.includes("login")
+  const hideNavFooter = location.pathname.includes("login") || location.pathname.includes("signUp")
   return (
     <div>
       {hideNavFooter || <Navbar></Navbar>}

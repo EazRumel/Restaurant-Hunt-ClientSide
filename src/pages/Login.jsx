@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 
 
@@ -20,7 +21,6 @@ const Login = () => {
     if(validateCaptcha(captchaValue)){
       setDisabled(false)
     }
-
   }
   
   useEffect(()=>{
@@ -62,10 +62,12 @@ const Login = () => {
             <button className="btn mt-5 btn-xs" onClick={handleCaptchaValidate}>Validate</button>
           </div>
           <div className="form-control mt-6">
-            <button disabled={disabled} className="btn btn-primary">Login</button>
+            <button disabled={disabled} className="btn bg-orange-500 hover:bg-orange-400 transition-transform scale-100 hover:scale-110 duration-200 text-white">Login</button>
           </div>
         </form>
-      </div>
+        <p className="px-5 py-5">Don't Have an account?<Link
+        className="text-green-500" to="/signUp">Sign Up</Link></p>
+      </div> 
     </div>
   </div>
   );

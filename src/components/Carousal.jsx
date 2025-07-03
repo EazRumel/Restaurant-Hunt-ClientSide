@@ -1,4 +1,3 @@
-import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel'
 import img1 from "../assets/assets/home/01.jpg"
@@ -32,7 +31,6 @@ const Carousal = () => {
     </div>
     <div>
         <img src={img6}/>
-
     </div>
 </Carousel>
   );
