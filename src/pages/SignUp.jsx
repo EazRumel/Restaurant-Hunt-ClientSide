@@ -1,19 +1,30 @@
 
+import { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
+
 
 const SignUp = () => {
   const {
     register,handleSubmit,formState: { errors },} = useForm()
-  const onSubmit = (data) => console.log(data)
+    const {createUser}  = useContext(AuthContext)
+  const onSubmit = (data)  => {
+    console.log(data)
+    createUser(data.email,data.password)
+    .then(result=>{
+      console.log(result)
+    })
+  }
+ 
   return (
     <div className="hero bg-base-200 min-h-screen">
     <Helmet>
               <title>
               RH || SignUp
               </title>
-            </Helmet>
+     </Helmet>
     <div className="hero-content flex-col lg:flex-row-reverse">
       <div className="text-center lg:w-1/2 lg:text-left">
         <h1 className="text-5xl font-bold">Sign Up now!</h1>
@@ -49,12 +60,7 @@ const SignUp = () => {
             <label className="label">
               <span className="label-text">Password</span>
             </label>
-            <input {...register("password",{
-            required:true,
-            minLength:6,
-            maxLength:20,
-            pattern:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*?_~()-]*).*$/}
-            )} name="password" type="password" placeholder="password" className="input input-bordered"  />
+            <input {...register("password",{required:true, minLength:6,maxLength:20,pattern:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.[!@#$%^&*?_~()-]*).*$/})} name="password" type="password" placeholder="password" className="input input-bordered"  />
            {errors.password?.type === "required" && <p className="text-red-500 font-semibold my-3">Password is required</p>}
            {errors.password?.type === "minLength" && <p className="text-red-500 font-semibold my-3">Password must be 6 characters</p>}
            {errors.password?.type === "maxLength" && <p className="text-red-500 font-semibold my-3">Password must be more than 6 characters</p>}
