@@ -53,11 +53,18 @@ const Navbar = () => {
   <div className="navbar-end">
    {
     user ? <>
-      <Link to="/login"> <button onClick={handleLogOut} className="btn btn-link text-blue-600">LogOut</button></Link>
+     
+      
+       <button className="btn">
+         <p className="font-bold text-x text-orange-500">{user?.displayName}</p>
+      <img className="w-8  rounded-full" src={user?.photoURL} alt="" />
+       </button>
+ <Link to="/login"> <button onClick={handleLogOut} className="btn btn-link text-blue-600">LogOut</button></Link>
     </> : <>
       <Link to="/login"> <button className="btn btn-link text-blue-600">Login</button></Link>
     </>
    }
+   
   </div>
 </div>
   );

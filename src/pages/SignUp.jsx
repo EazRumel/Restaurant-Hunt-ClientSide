@@ -2,20 +2,59 @@
 import { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
 
 
 const SignUp = () => {
+  const notyf = new Notyf({
+  duration: 1000,
+  position: {
+    x: 'center',
+    y: 'top',
+  },
+  types: [
+    {
+      type: 'success',
+      background: 'green',
+      icon: {
+        className: 'material-icons',
+        tagName: 'i',
+        text: 'success'
+      }
+    },
+    {
+      type: 'success',
+      background: 'green',
+      duration: 2000,
+      dismissible: true
+    }
+  ]
+});
+  const navigate = useNavigate();
   const {
-    register,handleSubmit,formState: { errors },} = useForm()
-    const {createUser}  = useContext(AuthContext)
+    register,handleSubmit,reset,formState: { errors },} = useForm()
+    const {createUser,updateUser}  = useContext(AuthContext)
   const onSubmit = (data)  => {
     console.log(data)
     createUser(data.email,data.password)
     .then(result=>{
       console.log(result)
+    updateUser(data.name,data.photo)
+    .then(result=>{
+      console.log(result)
+    notyf.success("User has been update");
+    navigate("/")
+      reset()
     })
+    .catch(error=>{
+      console.log(error.message)
+      notyf.error("User updating was failed");
+    })
+    })
+   
   }
  
   return (
