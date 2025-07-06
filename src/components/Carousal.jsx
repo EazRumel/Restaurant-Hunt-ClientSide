@@ -6,12 +6,12 @@ import img3 from "../assets/assets/home/03.png"
 import img4 from "../assets/assets/home/04.jpg"
 import img5 from "../assets/assets/home/05.png"
 import img6 from "../assets/assets/home/06.png"
+
 const Carousal = () => {
   return (
     <Carousel>
     <div>
         <img src={img1} />
-
     </div>
     <div>
         <img src={img2} />

@@ -28,9 +28,9 @@ export const router = createBrowserRouter([
       },
       {
         path:"/order/:category",
-        element:<PrivateRoute>
+        element:
           <Order></Order>
-        </PrivateRoute>
+
       },
      {
       path:"/login",

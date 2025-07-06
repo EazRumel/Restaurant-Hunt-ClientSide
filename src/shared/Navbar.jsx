@@ -1,14 +1,20 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import { FaShoppingCart } from 'react-icons/fa';
+import useCart from '../hooks/useCart';
 
 const Navbar = () => {
+  const [cart] = useCart()
   const {user,logOut} = useContext(AuthContext)
-  const links = <>
+  const links = <ul className="flex justify-evenly">
         <li><Link to="/">Home</Link></li>
      <li><Link to="/menu">Menu</Link></li>
      <li><Link to="/order/salad">Order</Link></li>
-  </>
+     <li><button className="btn">
+  Cart {cart.length} <div className="badge badge-sm badge-secondary"><FaShoppingCart /></div>
+</button></li>
+  </ul>
   const handleLogOut =() =>{
     logOut()
     .catch(error=>{
@@ -55,7 +61,7 @@ const Navbar = () => {
     user ? <>
      
       
-       <button className="btn">
+       <button className="btn bg-opacity-30">
          <p className="font-bold text-x text-orange-500">{user?.displayName}</p>
       <img className="w-8  rounded-full" src={user?.photoURL} alt="" />
        </button>
