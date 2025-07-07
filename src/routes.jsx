@@ -10,6 +10,9 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import PrivateRoute from "./shared/PrivateRoute";
 import Loading from "./shared/Loading";
+import Dashboard from "./layout/Dashboard";
+import MyCart from "./pages/Dashboard/MyCart";
+
 
 
 
@@ -45,4 +48,14 @@ export const router = createBrowserRouter([
      }
     ]
   },
+  {
+    path:"dashboard",
+    element:<Dashboard></Dashboard>,
+   children:[
+    {
+    path:"cart",
+    element:<MyCart></MyCart>
+    }
+   ]
+  }
 ]);

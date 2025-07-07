@@ -43,7 +43,9 @@ const axiosSecure = useAxiosSecure()
     const cartItem = {
        menuId:_id,
        email:user.email,
+       userName:user.displayName,
       name,
+      image,
       price
     }
     axiosSecure.post("/carts",cartItem)
