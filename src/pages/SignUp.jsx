@@ -6,9 +6,11 @@ import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
+import useAxiosPublic from '../hooks/useAxiosPublic';
 
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic()
   const notyf = new Notyf({
   duration: 1000,
   position: {
@@ -44,10 +46,20 @@ const SignUp = () => {
       console.log(result)
     updateUser(data.name,data.photo)
     .then(result=>{
-      console.log(result)
-    notyf.success("User has been update");
-    navigate("/")
+      const userInfo = {
+        name:data.name,
+        email:data.email
+      }
+      axiosPublic.post("/users",userInfo)
+      .then(response=>{
+        console.log(response.data)
+        if(response.data.insertedId){
+      notyf.success("User has been updated");
+      navigate("/")
       reset()
+     }
+     })
+    console.log(result)
     })
     .catch(error=>{
       console.log(error.message)
