@@ -7,6 +7,8 @@ import { AuthContext } from '../provider/AuthProvider';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 import useAxiosPublic from '../hooks/useAxiosPublic';
+import SocialLogin from '../components/SocialLogin';
+
 
 
 const SignUp = () => {
@@ -123,10 +125,13 @@ const SignUp = () => {
             <button className="btn bg-orange-500 hover:bg-orange-400 transition-transform translate-x-0 scale-100 hover:scale-110 duration-200 text-white">Sign Up</button>
           </div>
         </form>
+         <SocialLogin></SocialLogin>
         <p className="px-5 py-5">Don't Have an account?<Link
         className="text-green-500" to="/login">Login</Link></p>
+      
       </div>
     </div>
+    
   </div>
   );
 };

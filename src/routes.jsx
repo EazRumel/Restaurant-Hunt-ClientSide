@@ -12,6 +12,7 @@ import PrivateRoute from "./shared/PrivateRoute";
 import Loading from "./shared/Loading";
 import Dashboard from "./layout/Dashboard";
 import MyCart from "./pages/Dashboard/MyCart";
+import ManageAllUsers from "./pages/Dashboard/Admin/ManageAllUsers";
 
 
 
@@ -57,6 +58,11 @@ export const router = createBrowserRouter([
     {
     path:"cart",
     element:<MyCart></MyCart>
+    }
+    ,
+    {
+      path:"manageAllUsers",
+      element:<ManageAllUsers></ManageAllUsers>
     }
    ]
   }

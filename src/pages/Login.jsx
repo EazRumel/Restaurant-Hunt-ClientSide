@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from '../components/SocialLogin';
 
 
 const Login = () => {
@@ -91,10 +92,12 @@ Swal.fire({
           <div className="form-control mt-6">
             <button disabled={disabled} className="btn bg-orange-500 hover:bg-orange-400 transition-transform scale-100 hover:scale-110 duration-200 text-white">Login</button>
           </div>
+           <SocialLogin></SocialLogin>
         </form>
         <p className="px-5 py-5">Don't Have an account?<Link
         className="text-green-500" to="/signUp">Sign Up</Link></p>
       </div> 
+     
     </div>
   </div>
   );
