@@ -19,7 +19,7 @@ const Dashboard = () => {
           isAdmin ? <>
                  <li className="text-white font-semibold"><NavLink to="/">Admin Home -<FaHome className="text-xl text-white"></FaHome></NavLink>
                  </li>
-            <li className="text-white font-semibold"><NavLink to="/dashboard/addItems">Add Items -<FaUtensils className="text-xl"></FaUtensils></NavLink>
+            <li className="text-white font-semibold"><NavLink to="/dashboard/addItems">Add Items -<FaUtensils className="text-xl text-white"></FaUtensils></NavLink>
             </li> 
             <li className="text-white font-semibold"><NavLink to="/dashboard/manageItems">Manage Items -<FaSitemap className="text-xl text-white" /></NavLink>
             </li>
