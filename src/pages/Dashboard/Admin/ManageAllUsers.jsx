@@ -30,6 +30,7 @@ const handleMakeAdmin = (user) =>{
         console.log(response.data)
         refetch()
         if(response.data.modifiedCount > 0){
+          refetch()
          Swal.fire({
         title: "Updated!",
         text: `${user.name} is an admin now.`,
@@ -96,7 +97,8 @@ const handleMakeAdmin = (user) =>{
         <th>{user.name}</th>
         <td>{user.email}</td>
         <td>
-        <button onClick={()=>handleMakeAdmin(user)} className="btn bg-red-200"><FaUser className="text-xl text-orange-600 "/></button>
+        {user.role === "admin" ? <p className="text-gray-700 font-bold">Admin</p> :<button onClick={()=>handleMakeAdmin(user)} className="btn bg-red-200"><FaUser className="text-xl text-orange-600 "/>
+        </button>}
         </td>
         <td>
         <button onClick={()=>handleMakeDelete(user)} className="btn bg-red-400"><RiDeleteBin4Fill /></button>
