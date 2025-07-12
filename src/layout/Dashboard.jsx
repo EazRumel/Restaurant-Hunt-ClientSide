@@ -5,11 +5,12 @@ import { FaHistory, FaHome, FaSearch, FaShoppingBag, FaSitemap, FaUsers, FaUtens
 import { MdOutlineRestaurantMenu, MdRateReview } from "react-icons/md";
 import { RiReservedFill } from "react-icons/ri";
 import { TbBrandBooking } from "react-icons/tb";
+import useAdmin from "../hooks/useAdmin";
 
 
 const Dashboard = () => {
   const [cart]= useCart()
-  const isAdmin = true;
+  const [isAdmin] =useAdmin();
   return (
 
       <div className="flex">
