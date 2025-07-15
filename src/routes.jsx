@@ -13,6 +13,8 @@ import Loading from "./shared/Loading";
 import Dashboard from "./layout/Dashboard";
 import MyCart from "./pages/Dashboard/MyCart";
 import ManageAllUsers from "./pages/Dashboard/Admin/ManageAllUsers";
+import AddItems from "./pages/Dashboard/Admin/AddItems";
+import PrivateAdmin from "./shared/PrivateAdmin";
 
 
 
@@ -62,7 +64,15 @@ export const router = createBrowserRouter([
     ,
     {
       path:"manageAllUsers",
-      element:<ManageAllUsers></ManageAllUsers>
+      element:<PrivateAdmin><ManageAllUsers></ManageAllUsers></PrivateAdmin>
+    },
+    {
+      path:"addItems",
+    element:
+    <PrivateAdmin>
+      <AddItems></AddItems>
+    </PrivateAdmin>
+
     }
    ]
   }
