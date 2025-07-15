@@ -35,9 +35,9 @@ const AddItems = () => {
   })
   const axiosPublic = useAxiosPublic()
   const axiosPrivate = useAxiosSecure()
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const onSubmit = async(data) => {
-    console.log(data)
+    // console.log(data)
     const imageData = {image:data.image[0]}
     const res = await axiosPublic.post(imageUrl,imageData,{
        headers: {
@@ -53,7 +53,11 @@ const AddItems = () => {
       price:parseFloat(data.price)
     }
     const menuRes =await axiosPrivate.post("/menu",menuItem)
-    console.log(menuRes.data)
+    if(menuRes.data.insertedId){
+      notyf.success(`${data.name} has been added`);
+    }
+   console.log(menuRes.data)
+   reset()
     }
     
     // console.log(res.data)

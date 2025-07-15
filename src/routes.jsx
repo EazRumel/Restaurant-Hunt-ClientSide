@@ -15,6 +15,8 @@ import MyCart from "./pages/Dashboard/MyCart";
 import ManageAllUsers from "./pages/Dashboard/Admin/ManageAllUsers";
 import AddItems from "./pages/Dashboard/Admin/AddItems";
 import PrivateAdmin from "./shared/PrivateAdmin";
+import ManageItems from "./pages/Dashboard/Admin/ManageItems";
+import UpdateItem from "./pages/Dashboard/Admin/UpdateItem";
 
 
 
@@ -72,6 +74,17 @@ export const router = createBrowserRouter([
     <PrivateAdmin>
       <AddItems></AddItems>
     </PrivateAdmin>
+    },
+    {
+      path:"updateItems/:id",
+      element:<UpdateItem></UpdateItem>,
+      loader:({params})=>fetch(`http://localhost:3000/menu/${params.id}`)
+    },
+    {
+      path:"manageItems",
+      element:<PrivateAdmin>
+        <ManageItems></ManageItems>
+      </PrivateAdmin>
 
     }
    ]
