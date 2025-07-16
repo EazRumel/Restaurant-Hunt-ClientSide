@@ -4,6 +4,7 @@ import { AiFillDelete } from "react-icons/ai";
 import useCart from '../../hooks/useCart';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyCart = () => {
   const [cart,refetch] = useCart()
@@ -44,7 +45,14 @@ const MyCart = () => {
       <div className="flex justify-evenly mt-10 text-orange-500 font-extrabold">
         <h2>Cart length:{cart.length}</h2>
       <h2>Total Price:{totalPrice}</h2>
-      <button className="btn bg-orange-600 text-white btn-sm px-6">Pay <FaCcAmazonPay /></button>
+      {
+        cart.length ?
+        <Link to="/dashboard/payment">
+          <button className="btn bg-orange-600 text-white btn-sm px-6">Pay <FaCcAmazonPay /></button>
+        </Link>
+        :
+        <button disabled className="btn bg-orange-600 text-white btn-sm px-6">Pay <FaCcAmazonPay /></button>
+      }
     </div>
      <div>
         <div className="overflow-x-auto">

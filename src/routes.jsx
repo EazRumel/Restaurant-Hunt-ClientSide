@@ -17,6 +17,7 @@ import AddItems from "./pages/Dashboard/Admin/AddItems";
 import PrivateAdmin from "./shared/PrivateAdmin";
 import ManageItems from "./pages/Dashboard/Admin/ManageItems";
 import UpdateItem from "./pages/Dashboard/Admin/UpdateItem";
+import Payment from "./pages/Dashboard/User/Payment/Payment";
 
 
 
@@ -62,7 +63,13 @@ export const router = createBrowserRouter([
     {
     path:"cart",
     element:<MyCart></MyCart>
+    },
+    {
+     path:"payment",
+     element:<Payment></Payment>
     }
+
+    //admin routes only
     ,
     {
       path:"manageAllUsers",
