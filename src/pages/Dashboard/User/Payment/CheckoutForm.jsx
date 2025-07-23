@@ -63,6 +63,17 @@ else{
   if(paymentIntent.status === "succeeded"){
   console.log(paymentIntent.id)
   setTransactionId(paymentIntent.id)
+  const payment  = { 
+   email:user?.email,
+   transactionId:paymentIntent.id,
+   price:totalPrice,
+   date:new Date(),
+   cartIds:cart.map(item => item._id),
+   menuIds:cart.map(item =>item.menuId),
+   status:"pending"
+  }
+    const res = await axiosSecure.post("/payments",payment)
+    console.log(res.data)
   }
 }
 
