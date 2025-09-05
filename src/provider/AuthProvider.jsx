@@ -18,11 +18,11 @@ const AuthProvider = ({children}) => {
   }
 
   const createUser = (email,password) =>{
-    setLoading(false)
+    setLoading(true)
     return createUserWithEmailAndPassword(auth,email,password)
   }
   const signIn = (email,password)=>{
-    setLoading(false)
+    setLoading(true)
    return signInWithEmailAndPassword(auth,email,password)
   }
   const updateUser = (name,photo)=>{
@@ -31,7 +31,7 @@ const AuthProvider = ({children}) => {
     })
   }
   const logOut= ()=>{
-    setLoading(false)
+    setLoading(true)
     return signOut(auth)
   }
   useEffect(()=>{
@@ -45,14 +45,16 @@ const AuthProvider = ({children}) => {
         .then(response=>{
           if(response.data.token){
            localStorage.setItem("access-token",response.data.token)
+           setLoading(false)
           }
         })
       }
       else{
         localStorage.removeItem("access-token")
+        setLoading(false)
       }
      
-      setLoading(false)
+      
     })
     return ()  => {
       return unSubscribe()
