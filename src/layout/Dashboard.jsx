@@ -24,18 +24,18 @@ const Dashboard = () => {
             </li> 
             <li className="text-white font-semibold"><NavLink to="/dashboard/manageItems">Manage Items -<FaSitemap className="text-xl text-white" /></NavLink>
             </li>
-            <li className="text-white font-semibold"><NavLink to="/dashboard/manageBookings">Manage Bookings -<TbBrandBooking  className="text-xl text-white"/></NavLink>
-            </li>
+            {/* <li className="text-white font-semibold"><NavLink to="/dashboard/manageBookings">Manage Bookings -<TbBrandBooking  className="text-xl text-white"/></NavLink>
+            </li> */}
             <li className="text-white font-semibold"><NavLink to="/dashboard/manageAllUsers">Manage All Users -<FaUsers   className="text-xl text-white"/></NavLink>
             </li>
             
           </> : <>
              <li className="text-white font-semibold"><NavLink to="/">User Home -<FaHome className="text-xl text-white"></FaHome></NavLink></li>
             <li className="text-white font-semibold"><NavLink to="/dashboard/cart">My Cart({cart.length}) -<FaShoppingBag className="text-xl"></FaShoppingBag></NavLink></li> 
-            <li className="text-white font-semibold"><NavLink to="/dashboard/reservations">Reservations -<RiReservedFill /></NavLink></li>
+            {/* <li className="text-white font-semibold"><NavLink to="/dashboard/reservations">Reservations -<RiReservedFill /></NavLink></li> */}
             <li className="text-white font-semibold"><NavLink to="/dashboard/paymentHistory">Payment History -<FaHistory className="text-xl text-white"/></NavLink></li>
             <li className="text-white font-semibold"><NavLink to="/dashboard/addReview">Add Review -<MdRateReview className="text-xl text-white" /></NavLink></li> 
-            <li className="text-white font-semibold"><NavLink to="/dashboard/myBookings">My Bookings -<TbBrandBooking className="text-xl text-white" /></NavLink></li> 
+            {/* <li className="text-white font-semibold"><NavLink to="/dashboard/myBookings">My Bookings -<TbBrandBooking className="text-xl text-white" /></NavLink></li>  */}
         </>
       }
           <div className="divider"></div>

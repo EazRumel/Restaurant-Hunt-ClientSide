@@ -38,7 +38,7 @@ const axiosSecure = useAxiosSecure()
 })
   const {name,recipe,image,category,price,_id} = item;
   const handleAddToCart = (food) =>{
-   console.log(food)
+   //console.log(food)
    if(user && user.email){
     const cartItem = {
        menuId:_id,
@@ -50,7 +50,7 @@ const axiosSecure = useAxiosSecure()
     }
     axiosSecure.post("/carts",cartItem)
     .then(response =>{
-      console.log(response.data)
+      //console.log(response.data)
     if(response.data.insertedId){
      notyf.success(`${name} has been added to your cart`);
     }

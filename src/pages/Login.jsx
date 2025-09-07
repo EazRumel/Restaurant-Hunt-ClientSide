@@ -15,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state?.from?.pathname || "/";
-  // console.log(location.state)
+  // //console.log(location.state)
 
 
   const handleLogin = (event) =>{
@@ -23,10 +23,10 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password)
+    //console.log(email,password)
     signIn(email,password)
     .then(result=>{
-      console.log(result)
+      //console.log(result)
 Swal.fire({
   title: "Login Successful!",
   icon: "success",
@@ -35,7 +35,7 @@ Swal.fire({
       navigate(from,{replace:true})
     }) 
     .catch(error=>{
-      console.log(error.message)
+      //console.log(error.message)
       Swal.fire({
   title: "Login Failed!",
   icon: "error",
@@ -45,7 +45,7 @@ Swal.fire({
   }
   const handleCaptchaValidate = (event) =>{
     const captchaValue = event.target.value;
-    console.log(captchaValue)
+    //console.log(captchaValue)
     if(validateCaptcha(captchaValue)){
       setDisabled(false)
     }

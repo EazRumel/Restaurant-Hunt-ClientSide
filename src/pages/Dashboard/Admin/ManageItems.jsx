@@ -48,7 +48,7 @@ const ManageItems = () => {
   if (result.isConfirmed) {
     const res =await axiosPublic.delete(`/menu/${item._id}`)
     
-      console.log(res.data)
+      //console.log(res.data)
       if(res.data.deletedCount > 0){
         refetch();
         notyf.success(`${item.name} has been deleted`);

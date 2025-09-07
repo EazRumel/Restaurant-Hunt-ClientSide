@@ -7,7 +7,7 @@ import Loading from '../shared/Loading';
 
 const MainLayout = () => {
   const location = useLocation()
-  // console.log(location)
+  // //console.log(location)
   const hideNavFooter = location.pathname.includes("login") || location.pathname.includes("signUp")
   return (
     <div>

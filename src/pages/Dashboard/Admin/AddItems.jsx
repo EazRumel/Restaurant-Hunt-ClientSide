@@ -37,7 +37,7 @@ const AddItems = () => {
   const axiosPrivate = useAxiosSecure()
   const { register, handleSubmit,reset } = useForm();
   const onSubmit = async(data) => {
-    // console.log(data)
+    // //console.log(data)
     const imageData = {image:data.image[0]}
     const res = await axiosPublic.post(imageUrl,imageData,{
        headers: {
@@ -56,11 +56,11 @@ const AddItems = () => {
     if(menuRes.data.insertedId){
       notyf.success(`${data.name} has been added`);
     }
-   console.log(menuRes.data)
+   //console.log(menuRes.data)
    reset()
     }
     
-    // console.log(res.data)
+    // //console.log(res.data)
   }
   return (
     <div className="mx-10 my-10">

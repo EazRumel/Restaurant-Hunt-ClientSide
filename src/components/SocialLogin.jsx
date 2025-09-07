@@ -35,20 +35,20 @@ const SocialLogin = () => {
   const handleGoogleSignIn = () =>{
    signInWithGoogle()
    .then(response => {
-     console.log(response.user)
+     //console.log(response.user)
     const userInfo = {
       email:response.user?.email,
       name:response.user?.displayName
     }
     axiosPublic.post("/users",userInfo)
     .then(response =>{
-      console.log(response.data)
+      //console.log(response.data)
     })
     notyf.success("Logged in User")
     navigate("/")
    })
   .catch(error =>{
-    console.log(error.message)
+    //console.log(error.message)
     notyf.error("Logging Failed")
   })
   }

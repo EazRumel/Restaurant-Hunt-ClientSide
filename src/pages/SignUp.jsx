@@ -42,10 +42,10 @@ const SignUp = () => {
     register,handleSubmit,reset,formState: { errors },} = useForm()
     const {createUser,updateUser}  = useContext(AuthContext)
   const onSubmit = (data)  => {
-    console.log(data)
+    //console.log(data)
     createUser(data.email,data.password)
     .then(result=>{
-      console.log(result)
+      //console.log(result)
     updateUser(data.name,data.photo)
     .then(result=>{
       const userInfo = {
@@ -54,17 +54,17 @@ const SignUp = () => {
       }
       axiosPublic.post("/users",userInfo)
       .then(response=>{
-        console.log(response.data)
+        //console.log(response.data)
         if(response.data.insertedId){
       notyf.success("User has been updated");
       navigate("/")
       reset()
      }
      })
-    console.log(result)
+    //console.log(result)
     })
     .catch(error=>{
-      console.log(error.message)
+      //console.log(error.message)
       notyf.error("User updating was failed");
     })
     })

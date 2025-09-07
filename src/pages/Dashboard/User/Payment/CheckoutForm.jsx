@@ -45,7 +45,7 @@ const CheckoutForm = () => {
     if(totalPrice > 0) {
       axiosSecure.post("/create-payment-intent", { price: totalPrice })
       .then(response => {
-        console.log(response.data.clientSecret)
+        //console.log(response.data.clientSecret)
         setClientSecret(response.data.clientSecret)
       })
     }
@@ -69,7 +69,7 @@ const CheckoutForm = () => {
       setError(error.message)
     }
     else {
-      console.log('payment successful', paymentMethod)
+      //console.log('payment successful', paymentMethod)
       setError(" ")
     }
     const { paymentIntent, confirmError } = await stripe.confirmCardPayment(clientSecret, {
@@ -83,12 +83,12 @@ const CheckoutForm = () => {
     })
 
     if (confirmError) {
-      console.log("payment-error happened", confirmError)
+      //console.log("payment-error happened", confirmError)
     }
     else {
-      console.log("payment-intent", paymentIntent)
+      //console.log("payment-intent", paymentIntent)
       if (paymentIntent.status === "succeeded") {
-        console.log(paymentIntent.id)
+        //console.log(paymentIntent.id)
         setTransactionId(paymentIntent.id)
         const payment = {
           email: user?.email,
@@ -100,7 +100,7 @@ const CheckoutForm = () => {
           status: "pending"
         }
         const res = await axiosSecure.post("/payments", payment)
-        console.log(res.data)
+        //console.log(res.data)
         if(res.data.paymentResult.insertedId){
         notyf.success('Thank You for your payment')
         }

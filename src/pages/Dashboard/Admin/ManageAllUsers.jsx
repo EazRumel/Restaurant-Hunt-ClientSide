@@ -27,7 +27,7 @@ const handleMakeAdmin = (user) =>{
     if (result.isConfirmed) {
       axiosSecure.patch(`/users/admin/${user._id}`)
       .then(response=>{
-        console.log(response.data)
+        //console.log(response.data)
         refetch()
         if(response.data.modifiedCount > 0){
           refetch()
@@ -39,7 +39,7 @@ const handleMakeAdmin = (user) =>{
       }
       })  
       .catch(error=>{
-        console.log(error.message)
+        //console.log(error.message)
       })
     }
   })
@@ -57,7 +57,7 @@ const handleMakeAdmin = (user) =>{
     if (result.isConfirmed) {
       axiosSecure.delete(`/users/${user._id}`)
       .then(response=>{
-        console.log(response.data)
+        //console.log(response.data)
         refetch()
         if(response.data.deletedCount > 0){
          Swal.fire({
@@ -68,7 +68,7 @@ const handleMakeAdmin = (user) =>{
       }
       })  
       .catch(error=>{
-        console.log(error.message)
+        //console.log(error.message)
       })
     }
   })
